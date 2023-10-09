@@ -84,8 +84,6 @@ class _quizzState extends State<quizz> {
         ),
         child: Text(Answer.ansText,style: const TextStyle(fontSize: 18),),
         onPressed: (){
-
-
               setState(() {
                 selectAns=Answer;
                 chAns=Answer.isCorrect;
@@ -111,15 +109,16 @@ class _quizzState extends State<quizz> {
             primary: Colors.black,
             onPrimary: Colors.white
         ),
-        child: Text(lastQues?"Sumit":"Next",style: TextStyle(fontSize: 18),),
+        child: Text(lastQues?"Summit":"Next",style: TextStyle(fontSize: 18),),
         onPressed: (){
-          if(chAns!=null && chAns!=false){
+          if(chAns!=null && chAns==true){
             score++;
           }if(lastQues){
             showDialog(context: context, builder: (context) => scoreBox(),);
           }else{
             setState(() {
               selectAns=null;
+              chAns=null;
               currentQuesInd++;
             });
           }
